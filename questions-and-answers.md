@@ -1,10 +1,11 @@
 问：redolog 都长什么样
 
-答
+答：
 
 ---
 
 问：sql语句回表次数
+
 CREATE TABLE `t` (
   `id` int NOT NULL,
   `a` int DEFAULT NULL,
@@ -19,12 +20,9 @@ for(int i=1; i<100000; i++){
  insert table t values(i, i, i);
 }
 
-查询
-select * from force index(a) where a = 1; 会回表1次
+select * from a where a = 1 会回表1次，
+那么 select * from a where a > 100 and a <1000 回表的次数是多少次
 
-问
-select * from force index(a) where a > 100 and a <1000; 回表次数是 900 次吗？
-
-答：
+答：900次
 
 ---
